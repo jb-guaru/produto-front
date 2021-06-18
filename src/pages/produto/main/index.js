@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
  
 export default class Main extends Component {
     constructor(props) {
@@ -33,12 +32,10 @@ export default class Main extends Component {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nome do Produto</th>
-                            <th scope="col">Descrição do Produto</th>
-                            <th scope="col">Preço</th>
-                            <th scope="col">Quantidade em Estoque</th>
-                            <th scope="col">Data de Compra</th>
-                            <th scope="col">Ativo</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">preco</th>
+                            <th scope="col">Quantidade</th>
                             <th scope="col">Ações</th>
                         </tr>
                     </thead>
@@ -46,12 +43,10 @@ export default class Main extends Component {
                         {produto.map((produto, index) => (
                             <tr>
                                 <th scope="row">{produto.id}</th>
-                                <td>{produto.nomeProduto}</td>
-                                <td>{produto.descricaoProduto}</td>
+                                <td>{produto.nome}</td>
+                                <td>{produto.Descrição}</td>
                                 <td>{produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                                <td>{produto.quantidadeEstoque}</td>
-                                <td>{new Date(produto.datadeCompra).toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' })}</td>
-                                <td>{produto.ativo ? "Sim" : "Não"}</td>
+                                <td>{produto.QuantidadeEstoque}</td>
                                 <td> <Link to={`/produtos/${produto.id}`}> <button type="button" class="btn btn-primary">Detalhes</button> </Link> </td>
                                 <td> <Link to={`/editarproduto/${produto.id}`}> <button type="button" class="btn btn-warning">Atualizar</button> </Link></td>
                                 <td> <Link to={`/deletarproduto/${produto.id}`}> <button type="button" class="btn btn-danger">Excluir</button> </Link></td>
